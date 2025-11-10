@@ -14,7 +14,7 @@ function App() {
         </div>
         <div className="hero-content">
           <div className="logo-container">
-            <img src="/assets/logo.png" alt="Saffron" className="logo-icon" />
+            <img src="/assets/saffron-logo-removebg-preview.png" alt="Saffron" className="logo-icon" />
             <h1 className="logo">SAFFRON</h1>
           </div>
           <h2 className="tagline">Trade Smarter. Sleep Better.</h2>
@@ -23,7 +23,7 @@ function App() {
             Professional-grade execution, retail-friendly simplicity.
           </p>
           <a 
-            href="https://forms.gle/your-waitlist-form" 
+            href="https://forms.gle/iBvVrfZSS6T4q7zQ6" 
             className="cta-button"
             target="_blank"
             rel="noopener noreferrer"
@@ -36,7 +36,10 @@ function App() {
       {/* Features Section */}
       <section className="features">
         <div className="features-container">
-          <h2 className="section-title">What We Do</h2>
+          <div className="section-header">
+            <img src="/assets/saffron-logo.png" alt="" className="section-logo" />
+            <h2 className="section-title">What We Do</h2>
+          </div>
           
           <div className="features-grid">
             <div className="feature-card">
@@ -51,37 +54,19 @@ function App() {
 
             <div className="feature-card">
               <div className="feature-icon">🔒</div>
-              <h3 className="feature-title">Non-Custodial</h3>
+              <h3 className="feature-title">Self-Custodied Control</h3>
               <p className="feature-description">
-                Your funds stay in your wallet. We can't access your keys or move 
-                funds without your approval. You maintain full control.
-              </p>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">🔄</div>
-              <h3 className="feature-title">Smart Aggregation</h3>
-              <p className="feature-description">
-                Connect to multiple exchanges and DEXs. We route your trades 
-                for optimal execution and minimal slippage.
-              </p>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">💬</div>
-              <h3 className="feature-title">Human-Friendly Language</h3>
-              <p className="feature-description">
-                No coding required. Just describe your strategy naturally. 
-                "Buy $100 daily" - that's it. Setup in under 2 minutes.
+                Keep funds in your wallet at all times. Approve every move and stay
+                in command with granular permissions.
               </p>
             </div>
 
             <div className="feature-card">
               <div className="feature-icon">😌</div>
-              <h3 className="feature-title">Emotionless Trading</h3>
+              <h3 className="feature-title">Disciplined Execution</h3>
               <p className="feature-description">
-                Remove FOMO and fear from your trading. Stick to your strategy 
-                with disciplined, automated execution.
+                Strip emotion from trading. Strategies run with rule-based precision
+                so you never chase or hesitate.
               </p>
             </div>
           </div>
@@ -93,6 +78,62 @@ function App() {
               Monitor your strategies, track performance, and manage positions from anywhere. 
               Stay informed without being glued to charts. Trading that fits your lifestyle.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="how-it-works">
+        <div className="how-it-works-container">
+          <div className="how-header">
+            <img src="/assets/saffron-logo-removebg-preview.png" alt="Saffron emblem" className="how-logo" />
+            <h2 className="how-title">Tell Saffron Your Strategy</h2>
+            <p className="how-subtitle">
+              Speak your playbook in plain language. Saffron converts it into disciplined, automated execution.
+            </p>
+          </div>
+
+          <div className="strategy-examples">
+            <div className="strategy-card">
+              <div className="strategy-icon">💰</div>
+              <h3 className="strategy-title">Simple DCA Strategy</h3>
+              <pre className="strategy-code">{`"Buy $100 of APT-PERP daily,
+stop loss at -10%,
+take profit at +25%"`}</pre>
+            </div>
+
+            <div className="strategy-card">
+              <div className="strategy-icon">📈</div>
+              <h3 className="strategy-title">Automated Grid Strategy</h3>
+              <pre className="strategy-code">{`"Grid ARB-PERP between $0.95 and $1.15,
+10 levels, $250 per order,
+rebalance every 4 hours"`}</pre>
+            </div>
+          </div>
+
+          <div className="how-logo-divider">
+            <span className="divider-line" />
+            <img src="/assets/saffron-logo.png" alt="Saffron mark" className="divider-logo" />
+            <span className="divider-line" />
+          </div>
+
+          <div className="results-section">
+            <h3 className="results-title">Backtested Strategy Edge</h3>
+            <div className="results-grid">
+              <div className="result-item">
+                <span className="result-label">Manual DCA</span>
+                <span className="result-value">+18.2%</span>
+              </div>
+              <div className="result-item">
+                <span className="result-label">Saffron DCA</span>
+                <span className="result-value highlight">+23.7%</span>
+              </div>
+              <div className="result-item advantage">
+                <span className="result-label">Your Advantage</span>
+                <span className="result-value">+5.5%</span>
+                <span className="result-note">just from better execution</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -111,7 +152,7 @@ function App() {
             </a>
           </div>
           <p className="footer-text">
-            © 2024 Saffron. Trade smarter, not harder.
+            © 2025 Saffron. Trade smarter, not harder.
           </p>
         </div>
       </footer>
