@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Starfield from './Starfield';
 
 function App() {
   return (
@@ -7,9 +8,7 @@ function App() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-video-bg">
-          <video autoPlay loop muted playsInline className="hero-video">
-            <source src="https://cdn.pixabay.com/video/2022/11/07/137708-768721608_large.mp4" type="video/mp4" />
-          </video>
+          <Starfield />
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content">
