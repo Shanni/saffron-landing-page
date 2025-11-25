@@ -16,7 +16,7 @@ function App() {
             <img src="/assets/saffron-logo-removebg-preview.png" alt="Saffron" className="logo-icon" />
             <h1 className="logo">SAFFRON</h1>
           </div>
-          <h2 className="tagline">Trade Smarter. Sleep Better.</h2>
+          <h2 className="tagline">Trade Smarter. Hassle Free.</h2>
           <p className="subtitle">
             Automated trading strategies across multiple exchanges. 
             Professional-grade execution, retail-friendly simplicity.
