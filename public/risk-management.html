@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risk Management: Protecting Your Capital | Saffron</title>
+  <meta name="description" content="Essential techniques for position sizing, stop losses, and portfolio protection.">
+  <link rel="icon" href="/assets/saffron-logo.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(180deg, #0A0E27 0%, #1A1F3A 100%);
+      color: #E8D5C4;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    .nav {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(244, 164, 96, 0.1);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #F4A460;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: #F4A460;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-back:hover {
+      color: #FFB87A;
+    }
+
+    .article-hero {
+      padding: 80px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #F4A460;
+      background: rgba(244, 164, 96, 0.15);
+      padding: 6px 14px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+
+    .article-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      color: #A0A0A0;
+      font-size: 0.9rem;
+    }
+
+    .article-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px 100px;
+    }
+
+    .article-content h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin: 48px 0 20px;
+    }
+
+    .article-content h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #F4A460;
+      margin: 32px 0 16px;
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+      color: #D0D0D0;
+    }
+
+    .article-content ul, .article-content ol {
+      margin: 20px 0;
+      padding-left: 24px;
+    }
+
+    .article-content li {
+      margin-bottom: 12px;
+      color: #D0D0D0;
+    }
+
+    .highlight-box {
+      background: rgba(244, 164, 96, 0.1);
+      border: 1px solid rgba(244, 164, 96, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .highlight-box h4 {
+      color: #F4A460;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .warning-box h4 {
+      color: #EF4444;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .code-block {
+      background: rgba(10, 14, 39, 0.85);
+      border: 1px solid rgba(244, 164, 96, 0.25);
+      border-radius: 12px;
+      padding: 24px;
+      font-family: 'SF Mono', Monaco, monospace;
+      color: #F4A460;
+      margin: 24px 0;
+      overflow-x: auto;
+    }
+
+    .formula {
+      background: rgba(10, 14, 39, 0.6);
+      border: 1px solid rgba(244, 164, 96, 0.2);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      text-align: center;
+      font-family: 'SF Mono', Monaco, monospace;
+    }
+
+    .formula .main {
+      font-size: 1.25rem;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .formula .example {
+      font-size: 0.9rem;
+      color: #A0A0A0;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #F4A460 0%, #D2691E 100%);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .cta-section h3 {
+      color: #FFFFFF;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 24px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #FFFFFF;
+      color: #D2691E;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      padding: 40px;
+      text-align: center;
+      border-top: 1px solid rgba(244, 164, 96, 0.1);
+      color: #A0A0A0;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav, .article-hero, .article-content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .article-hero {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-logo">Saffron</a>
+    <a href="/" class="nav-back">← Back to Home</a>
+  </nav>
+
+  <header class="article-hero">
+    <span class="article-tag">Fundamentals</span>
+    <h1>Risk Management: Protecting Your Capital</h1>
+    <p class="article-meta">8 min read</p>
+  </header>
+
+  <article class="article-content">
+    <p>The difference between successful traders and everyone else isn't picking winners—it's managing risk. Even the best strategy will fail without proper risk management. This guide covers the essential techniques every trader needs to protect their capital.</p>
+
+    <div class="warning-box">
+      <h4>The #1 Rule of Trading</h4>
+      <p style="color: #FCA5A5; margin: 0;">Never risk more than you can afford to lose. Capital preservation always comes before profit generation.</p>
+    </div>
+
+    <h2>Position Sizing: The Foundation</h2>
+    <p>Position sizing determines how much capital you allocate to each trade. It's the single most important risk management tool, yet most traders ignore it.</p>
+
+    <h3>The 1% Rule</h3>
+    <p>A common guideline is to never risk more than 1-2% of your total portfolio on a single trade. This ensures that even a string of losses won't devastate your account.</p>
+
+    <div class="formula">
+      <div class="main">Position Size = (Account × Risk %) ÷ Stop Loss %</div>
+      <div class="example">Example: ($10,000 × 1%) ÷ 5% = $2,000 position</div>
+    </div>
+
+    <p>With a $10,000 account risking 1% per trade with a 5% stop loss, your maximum position size is $2,000. If the trade hits your stop, you lose $100 (1% of account).</p>
+
+    <h2>Stop Losses: Your Safety Net</h2>
+    <p>A stop loss automatically exits a position when price moves against you by a predetermined amount. It's non-negotiable—every trade needs a stop loss.</p>
+
+    <div class="highlight-box">
+      <h4>Types of Stop Losses</h4>
+      <ul>
+        <li><strong>Fixed percentage</strong> — Exit at -5%, -10%, etc.</li>
+        <li><strong>Technical levels</strong> — Below support or above resistance</li>
+        <li><strong>Volatility-based</strong> — ATR multiples adjust to market conditions</li>
+        <li><strong>Trailing stops</strong> — Lock in profits as price moves in your favor</li>
+      </ul>
+    </div>
+
+    <h3>Setting Effective Stop Losses</h3>
+    <p>Your stop loss should be:</p>
+    <ul>
+      <li><strong>Wide enough</strong> to avoid being stopped out by normal volatility</li>
+      <li><strong>Tight enough</strong> to limit losses when you're wrong</li>
+      <li><strong>Based on market structure</strong>, not arbitrary numbers</li>
+    </ul>
+
+    <h2>Take Profit: Locking in Gains</h2>
+    <p>Just as important as knowing when to exit a loser is knowing when to exit a winner. Take profit levels ensure you actually capture gains instead of watching them evaporate.</p>
+
+    <h3>Risk-Reward Ratio</h3>
+    <p>Before entering any trade, calculate your risk-reward ratio. A 1:2 ratio means you're risking $1 to potentially make $2. Most successful traders aim for at least 1:2.</p>
+
+    <div class="code-block">
+"Buy $100 of APT-PERP daily,
+stop loss at -10%,
+take profit at +25%"
+    </div>
+
+    <p>This Saffron strategy has a 1:2.5 risk-reward ratio. Even if only 40% of trades win, you'll be profitable.</p>
+
+    <h2>Portfolio-Level Risk Management</h2>
+    
+    <h3>Correlation Risk</h3>
+    <p>Don't put all your eggs in one basket—or even similar baskets. If all your positions are correlated (e.g., all altcoins), a single market move can wipe out everything.</p>
+
+    <h3>Maximum Drawdown Limits</h3>
+    <p>Set a maximum portfolio drawdown (e.g., -20%) where you stop trading and reassess. This prevents emotional decision-making during losing streaks.</p>
+
+    <h3>Diversification</h3>
+    <ul>
+      <li>Trade multiple uncorrelated assets</li>
+      <li>Use different strategies (DCA, grid, momentum)</li>
+      <li>Spread across different timeframes</li>
+    </ul>
+
+    <h2>Automating Risk Management with Saffron</h2>
+    <p>The hardest part of risk management is sticking to your rules when emotions run high. Automation removes this weakness entirely.</p>
+
+    <p>With Saffron, your risk parameters are enforced automatically:</p>
+    <ul>
+      <li>Stop losses execute instantly—no hesitation</li>
+      <li>Position sizes are calculated precisely</li>
+      <li>Take profits lock in gains without greed</li>
+      <li>Rules run 24/7, even while you sleep</li>
+    </ul>
+
+    <div class="highlight-box">
+      <h4>Key Takeaways</h4>
+      <ul>
+        <li>Never risk more than 1-2% per trade</li>
+        <li>Always use stop losses—no exceptions</li>
+        <li>Aim for at least 1:2 risk-reward ratio</li>
+        <li>Diversify across assets and strategies</li>
+        <li>Automate to remove emotional decisions</li>
+      </ul>
+    </div>
+
+    <div class="cta-section">
+      <h3>Trade with Built-in Risk Management</h3>
+      <p>Saffron enforces your risk rules automatically, 24/7. No more emotional overrides.</p>
+      <a href="https://forms.gle/iBvVrfZSS6T4q7zQ6" class="cta-button" target="_blank">Join Waitlist</a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <p>© 2024 Saffron Trading. All rights reserved.</p>
+  </footer>
+</body>
+</html>

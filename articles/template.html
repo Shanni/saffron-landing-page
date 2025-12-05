@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Article Title] - Saffron Trading</title>
+    <meta name="description" content="[Article description for SEO - 150-160 characters]">
+    <meta name="keywords" content="[keywords, separated, by, commas]">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="[Article Title]">
+    <meta property="og:description" content="[Article description]">
+    <meta property="og:image" content="[Featured image URL]">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="[Article Title]">
+    <meta name="twitter:description" content="[Article description]">
+    <meta name="twitter:image" content="[Featured image URL]">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* Article-specific styles */
+        .article-page {
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .article-header {
+            padding: 8rem 2rem 3rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            text-align: center;
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(201, 162, 39, 0.2);
+            color: #c9a227;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 1.5rem;
+        }
+
+        .article-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .article-content h2 {
+            font-size: 2rem;
+            color: #c9a227;
+            margin: 3rem 0 1.5rem;
+            font-weight: 700;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+            color: #f4d03f;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content code {
+            background: rgba(201, 162, 39, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            color: #c9a227;
+        }
+
+        .article-content pre {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: #fff;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #c9a227;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #999;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .article-cta {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.1) 0%, rgba(244, 208, 63, 0.05) 100%);
+            border: 2px solid rgba(201, 162, 39, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .article-cta h3 {
+            color: #c9a227;
+            margin-bottom: 1rem;
+        }
+
+        .article-cta p {
+            color: #999;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-cta .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #c9a227 0%, #f4d03f 100%);
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .article-cta .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(201, 162, 39, 0.4);
+        }
+
+        .related-articles {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .related-articles h3 {
+            text-align: center;
+            font-size: 2rem;
+            color: #c9a227;
+            margin-bottom: 2rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .related-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .related-card:hover {
+            border-color: #c9a227;
+            transform: translateY(-5px);
+        }
+
+        .related-card h4 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .related-card p {
+            color: #999;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body class="article-page">
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="brand">Saffron</a>
+            <nav class="primary-nav">
+                <button class="nav-toggle" aria-expanded="false">
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                </button>
+                <div class="nav-menu">
+                    <a href="../index.html#features">Features</a>
+                    <a href="../index.html#pricing">Pricing</a>
+                    <a href="../articles.html">Articles</a>
+                    <a href="../index.html#cta" class="nav-cta">Launch App</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <article>
+        <header class="article-header">
+            <span class="article-category">[Category Name]</span>
+            <h1 class="article-title">[Your Article Title Here]</h1>
+            <div class="article-meta">
+                <span class="article-meta-item">
+                    📅 [Date - e.g., November 29, 2024]
+                </span>
+                <span class="article-meta-item">
+                    ⏱️ [Read Time - e.g., 8 min read]
+                </span>
+                <span class="article-meta-item">
+                    ✍️ By Shan Liu
+                </span>
+            </div>
+        </header>
+
+        <div class="article-container">
+            <div class="article-content">
+                <!-- Introduction -->
+                <p>
+                    [Start with a compelling hook that addresses a problem or question your readers have. 
+                    Make it relatable and set up what they'll learn in this article.]
+                </p>
+
+                <!-- Main Content Section 1 -->
+                <h2>[Main Section Heading]</h2>
+                <p>
+                    [Your content here. Break into digestible paragraphs. Use examples, data, and clear explanations.]
+                </p>
+
+                <h3>[Subsection Heading]</h3>
+                <p>
+                    [More detailed content. Include bullet points when appropriate:]
+                </p>
+                <ul>
+                    <li><strong>Point 1:</strong> Explanation</li>
+                    <li><strong>Point 2:</strong> Explanation</li>
+                    <li><strong>Point 3:</strong> Explanation</li>
+                </ul>
+
+                <!-- Code Example (if applicable) -->
+                <h3>[Code Example Heading]</h3>
+                <pre><code>// Example code
+const strategy = {
+  type: 'DCA',
+  amount: 100,
+  interval: 'daily'
+};
+</code></pre>
+
+                <!-- Main Content Section 2 -->
+                <h2>[Another Main Section]</h2>
+                <p>
+                    [Continue with your content. Use visuals, examples, and clear structure.]
+                </p>
+
+                <blockquote>
+                    "[Include a relevant quote or key insight here]"
+                </blockquote>
+
+                <!-- Main Content Section 3 -->
+                <h2>[Final Main Section]</h2>
+                <p>
+                    [Wrap up your main points. Provide actionable takeaways.]
+                </p>
+
+                <!-- Numbered List Example -->
+                <ol>
+                    <li><strong>Step 1:</strong> Description</li>
+                    <li><strong>Step 2:</strong> Description</li>
+                    <li><strong>Step 3:</strong> Description</li>
+                </ol>
+
+                <!-- Conclusion -->
+                <h2>Conclusion</h2>
+                <p>
+                    [Summarize the key points. Reinforce the value readers gained. 
+                    End with a clear next step or call-to-action.]
+                </p>
+
+                <!-- CTA Box -->
+                <div class="article-cta">
+                    <h3>Ready to Automate Your Trading?</h3>
+                    <p>Start using Saffron to implement these strategies on Aptos with zero coding required.</p>
+                    <a href="../index.html#cta" class="btn">Get Started Free</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Articles -->
+        <section class="related-articles">
+            <h3>Related Articles</h3>
+            <div class="related-grid">
+                <a href="#" class="related-card">
+                    <h4>[Related Article Title 1]</h4>
+                    <p>[Brief description of the article]</p>
+                </a>
+                <a href="#" class="related-card">
+                    <h4>[Related Article Title 2]</h4>
+                    <p>[Brief description of the article]</p>
+                </a>
+                <a href="#" class="related-card">
+                    <h4>[Related Article Title 3]</h4>
+                    <p>[Brief description of the article]</p>
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>Saffron</h3>
+                <p>Automated trading strategies for Aptos</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="../index.html#features">Features</a>
+                    <a href="../index.html#pricing">Pricing</a>
+                    <a href="../index.html#how-it-works">How it Works</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="../articles.html">Articles</a>
+                    <a href="../index.html#faq">FAQ</a>
+                    <a href="#">Documentation</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://x.com/saffron_trading" target="_blank">Twitter</a>
+                    <a href="https://x.com/shanni_talks" target="_blank">Founder</a>
+                    <a href="mailto:shan.liu.s3@gmail.com">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Saffron. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                navToggle.setAttribute('aria-expanded', !isExpanded);
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

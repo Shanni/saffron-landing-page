@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Trading: Profit from Sideways Markets | Saffron</title>
+  <meta name="description" content="Capture gains in ranging markets with automated buy and sell orders at preset intervals.">
+  <link rel="icon" href="/assets/saffron-logo.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(180deg, #0A0E27 0%, #1A1F3A 100%);
+      color: #E8D5C4;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    .nav {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(244, 164, 96, 0.1);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #F4A460;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: #F4A460;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-back:hover {
+      color: #FFB87A;
+    }
+
+    .article-hero {
+      padding: 80px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #F4A460;
+      background: rgba(244, 164, 96, 0.15);
+      padding: 6px 14px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+
+    .article-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      color: #A0A0A0;
+      font-size: 0.9rem;
+    }
+
+    .article-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px 100px;
+    }
+
+    .article-content h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin: 48px 0 20px;
+    }
+
+    .article-content h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #F4A460;
+      margin: 32px 0 16px;
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+      color: #D0D0D0;
+    }
+
+    .article-content ul, .article-content ol {
+      margin: 20px 0;
+      padding-left: 24px;
+    }
+
+    .article-content li {
+      margin-bottom: 12px;
+      color: #D0D0D0;
+    }
+
+    .highlight-box {
+      background: rgba(244, 164, 96, 0.1);
+      border: 1px solid rgba(244, 164, 96, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .highlight-box h4 {
+      color: #F4A460;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .code-block {
+      background: rgba(10, 14, 39, 0.85);
+      border: 1px solid rgba(244, 164, 96, 0.25);
+      border-radius: 12px;
+      padding: 24px;
+      font-family: 'SF Mono', Monaco, monospace;
+      color: #F4A460;
+      margin: 24px 0;
+      overflow-x: auto;
+    }
+
+    .grid-visual {
+      background: rgba(10, 14, 39, 0.6);
+      border: 1px solid rgba(244, 164, 96, 0.2);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 32px 0;
+      text-align: center;
+    }
+
+    .grid-visual .price-levels {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 0.9rem;
+    }
+
+    .grid-visual .level {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 16px;
+      border-radius: 6px;
+    }
+
+    .grid-visual .level.sell {
+      background: rgba(239, 68, 68, 0.2);
+      color: #EF4444;
+    }
+
+    .grid-visual .level.buy {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22C55E;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #F4A460 0%, #D2691E 100%);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .cta-section h3 {
+      color: #FFFFFF;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 24px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #FFFFFF;
+      color: #D2691E;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      padding: 40px;
+      text-align: center;
+      border-top: 1px solid rgba(244, 164, 96, 0.1);
+      color: #A0A0A0;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav, .article-hero, .article-content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .article-hero {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-logo">Saffron</a>
+    <a href="/" class="nav-back">← Back to Home</a>
+  </nav>
+
+  <header class="article-hero">
+    <span class="article-tag">Advanced</span>
+    <h1>Grid Trading: Profit from Sideways Markets</h1>
+    <p class="article-meta">7 min read</p>
+  </header>
+
+  <article class="article-content">
+    <p>While most traders struggle in sideways markets, grid trading thrives. This strategy captures profits from price oscillations by placing a series of buy and sell orders at predetermined intervals—turning market volatility into consistent gains.</p>
+
+    <h2>What is Grid Trading?</h2>
+    <p>Grid trading creates a "grid" of orders above and below a set price. When price moves up, sell orders are triggered. When price moves down, buy orders are triggered. Each completed buy-sell cycle captures profit from the price movement.</p>
+
+    <div class="grid-visual">
+      <div class="price-levels">
+        <div class="level sell">$1.15 — SELL 100 units</div>
+        <div class="level sell">$1.10 — SELL 100 units</div>
+        <div class="level sell">$1.05 — SELL 100 units</div>
+        <div class="level" style="background: rgba(244,164,96,0.2); color: #F4A460;">$1.00 — Current Price</div>
+        <div class="level buy">$0.95 — BUY 100 units</div>
+        <div class="level buy">$0.90 — BUY 100 units</div>
+        <div class="level buy">$0.85 — BUY 100 units</div>
+      </div>
+    </div>
+
+    <h2>Why Grid Trading Works</h2>
+    <p>Markets spend roughly 70% of their time in consolidation—moving sideways within a range. Grid trading is specifically designed to profit from this behavior:</p>
+
+    <div class="highlight-box">
+      <h4>Grid Trading Advantages</h4>
+      <ul>
+        <li><strong>Profits in any direction</strong> — Makes money whether price goes up or down</li>
+        <li><strong>No prediction needed</strong> — You don't need to guess market direction</li>
+        <li><strong>Compounds automatically</strong> — Each trade resets for the next opportunity</li>
+        <li><strong>24/7 operation</strong> — Captures moves while you sleep</li>
+      </ul>
+    </div>
+
+    <h2>Setting Up a Grid Strategy</h2>
+    
+    <h3>1. Define Your Range</h3>
+    <p>Identify support and resistance levels where price has historically bounced. This becomes your grid's upper and lower bounds.</p>
+
+    <h3>2. Choose Grid Levels</h3>
+    <p>More levels mean more trades but smaller profits per trade. Fewer levels mean larger profits but less frequent trades. A typical grid has 5-20 levels.</p>
+
+    <h3>3. Set Position Size</h3>
+    <p>Divide your capital across all grid levels. Each level should have enough capital to execute its order.</p>
+
+    <h2>Automating Grid Trading with Saffron</h2>
+    <p>Grid trading requires constant monitoring and quick execution—perfect for automation. With Saffron, describe your strategy naturally:</p>
+
+    <div class="code-block">
+"Grid ARB-PERP between $0.95 and $1.15,
+10 levels, $250 per order,
+rebalance every 4 hours"
+    </div>
+
+    <p>Saffron manages the entire grid: placing orders, tracking fills, rebalancing positions, and optimizing execution timing.</p>
+
+    <h3>Advanced Grid Features</h3>
+    <ul>
+      <li><strong>Dynamic grids</strong> — Automatically adjust range based on volatility</li>
+      <li><strong>Trailing grids</strong> — Move the grid with trending markets</li>
+      <li><strong>Geometric spacing</strong> — Wider gaps at extremes, tighter near center</li>
+      <li><strong>Stop-loss integration</strong> — Exit if price breaks out of range</li>
+    </ul>
+
+    <h2>Risk Management for Grid Trading</h2>
+    <p>While grid trading is lower-risk than directional trading, it's not risk-free:</p>
+
+    <ul>
+      <li><strong>Breakout risk</strong> — If price breaks out of your range, you may hold losing positions</li>
+      <li><strong>Capital efficiency</strong> — Funds are spread across many orders</li>
+      <li><strong>Trending markets</strong> — Grids underperform in strong trends</li>
+    </ul>
+
+    <p>Mitigate these risks by setting stop-losses outside your grid range and sizing positions appropriately.</p>
+
+    <div class="cta-section">
+      <h3>Ready to Deploy Your Grid Strategy?</h3>
+      <p>Let Saffron automate your grid trading with professional-grade execution.</p>
+      <a href="https://forms.gle/iBvVrfZSS6T4q7zQ6" class="cta-button" target="_blank">Join Waitlist</a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <p>© 2024 Saffron Trading. All rights reserved.</p>
+  </footer>
+</body>
+</html>

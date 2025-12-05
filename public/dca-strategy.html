@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dollar Cost Averaging: The Steady Path to Growth | Saffron</title>
+  <meta name="description" content="Learn how DCA removes emotion from trading and builds positions systematically over time.">
+  <link rel="icon" href="/assets/saffron-logo.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(180deg, #0A0E27 0%, #1A1F3A 100%);
+      color: #E8D5C4;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    .nav {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(244, 164, 96, 0.1);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #F4A460;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: #F4A460;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-back:hover {
+      color: #FFB87A;
+    }
+
+    .article-hero {
+      padding: 80px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #F4A460;
+      background: rgba(244, 164, 96, 0.15);
+      padding: 6px 14px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+
+    .article-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      color: #A0A0A0;
+      font-size: 0.9rem;
+    }
+
+    .article-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px 100px;
+    }
+
+    .article-content h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin: 48px 0 20px;
+    }
+
+    .article-content h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #F4A460;
+      margin: 32px 0 16px;
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+      color: #D0D0D0;
+    }
+
+    .article-content ul, .article-content ol {
+      margin: 20px 0;
+      padding-left: 24px;
+    }
+
+    .article-content li {
+      margin-bottom: 12px;
+      color: #D0D0D0;
+    }
+
+    .highlight-box {
+      background: rgba(244, 164, 96, 0.1);
+      border: 1px solid rgba(244, 164, 96, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .highlight-box h4 {
+      color: #F4A460;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .code-block {
+      background: rgba(10, 14, 39, 0.85);
+      border: 1px solid rgba(244, 164, 96, 0.25);
+      border-radius: 12px;
+      padding: 24px;
+      font-family: 'SF Mono', Monaco, monospace;
+      color: #F4A460;
+      margin: 24px 0;
+      overflow-x: auto;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #F4A460 0%, #D2691E 100%);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .cta-section h3 {
+      color: #FFFFFF;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 24px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #FFFFFF;
+      color: #D2691E;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      padding: 40px;
+      text-align: center;
+      border-top: 1px solid rgba(244, 164, 96, 0.1);
+      color: #A0A0A0;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav, .article-hero, .article-content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .article-hero {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-logo">Saffron</a>
+    <a href="/" class="nav-back">← Back to Home</a>
+  </nav>
+
+  <header class="article-hero">
+    <span class="article-tag">Strategy Guide</span>
+    <h1>Dollar Cost Averaging: The Steady Path to Growth</h1>
+    <p class="article-meta">5 min read</p>
+  </header>
+
+  <article class="article-content">
+    <p>Dollar Cost Averaging (DCA) is one of the most powerful yet simple investment strategies available. By investing a fixed amount at regular intervals regardless of price, you remove emotion from the equation and build positions systematically over time.</p>
+
+    <h2>What is Dollar Cost Averaging?</h2>
+    <p>DCA is an investment strategy where you divide your total investment amount into periodic purchases. Instead of trying to time the market with a single large purchase, you spread your investment over time—buying more when prices are low and less when prices are high.</p>
+
+    <div class="highlight-box">
+      <h4>Key Benefits of DCA</h4>
+      <ul>
+        <li><strong>Removes emotional decision-making</strong> — No more panic selling or FOMO buying</li>
+        <li><strong>Reduces timing risk</strong> — You don't need to predict market movements</li>
+        <li><strong>Builds discipline</strong> — Consistent investing becomes a habit</li>
+        <li><strong>Lowers average cost</strong> — Buy more shares when prices dip</li>
+      </ul>
+    </div>
+
+    <h2>How DCA Works in Practice</h2>
+    <p>Let's say you want to invest $1,000 in Bitcoin over 10 weeks. Instead of buying $1,000 worth at once, you invest $100 each week:</p>
+
+    <ul>
+      <li>Week 1: BTC at $30,000 → Buy 0.00333 BTC</li>
+      <li>Week 2: BTC at $28,000 → Buy 0.00357 BTC</li>
+      <li>Week 3: BTC at $32,000 → Buy 0.00312 BTC</li>
+      <li>Week 4: BTC at $27,000 → Buy 0.00370 BTC</li>
+      <li>...and so on</li>
+    </ul>
+
+    <p>By the end, your average purchase price is often lower than if you had bought everything at once—especially in volatile markets.</p>
+
+    <h2>Automating DCA with Saffron</h2>
+    <p>While DCA is simple in concept, executing it consistently requires discipline. That's where Saffron comes in. Tell Saffron your strategy in plain language:</p>
+
+    <div class="code-block">
+"Buy $100 of APT-PERP daily,
+stop loss at -10%,
+take profit at +25%"
+    </div>
+
+    <p>Saffron handles the execution 24/7, ensuring your DCA strategy runs with precision—no missed buys, no emotional overrides, just disciplined accumulation.</p>
+
+    <h3>Why Automated DCA Outperforms Manual</h3>
+    <p>Our backtests show that automated DCA with Saffron delivers +5.5% better returns than manual execution. Why?</p>
+
+    <ul>
+      <li><strong>Perfect timing</strong> — Executes at exactly the right intervals</li>
+      <li><strong>No missed days</strong> — Runs even when you're busy or asleep</li>
+      <li><strong>Optimal execution</strong> — Finds the best prices within your time window</li>
+      <li><strong>Built-in risk management</strong> — Stop losses and take profits included</li>
+    </ul>
+
+    <h2>Best Practices for DCA</h2>
+    
+    <h3>1. Choose Your Interval Wisely</h3>
+    <p>Daily DCA provides the smoothest averaging but requires more transactions. Weekly or bi-weekly can be more practical for smaller portfolios.</p>
+
+    <h3>2. Stick to the Plan</h3>
+    <p>The power of DCA comes from consistency. Don't skip purchases when prices rise or double down when they fall—that defeats the purpose.</p>
+
+    <h3>3. Set It and Forget It</h3>
+    <p>The best DCA strategy is one you don't think about. Automate it and let compound growth work its magic over months and years.</p>
+
+    <div class="cta-section">
+      <h3>Ready to Start Your DCA Strategy?</h3>
+      <p>Join Saffron and automate your dollar cost averaging with professional-grade execution.</p>
+      <a href="https://forms.gle/iBvVrfZSS6T4q7zQ6" class="cta-button" target="_blank">Join Waitlist</a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <p>© 2024 Saffron Trading. All rights reserved.</p>
+  </footer>
+</body>
+</html>
