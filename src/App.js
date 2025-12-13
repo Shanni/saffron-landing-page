@@ -37,7 +37,7 @@ function App() {
               >
                 Join Waitlist
               </a>
-              <a href="#features" className="cta-link">
+              <a href="/articles.html" className="cta-link">
                 Learn more <span>→</span>
               </a>
             </div>
@@ -108,7 +108,7 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section className="features">
+      <section className="features" id="features">
         <div className="features-container">
           <div className="features-header">
             <span className="features-eyebrow">Trade Smarter</span>
@@ -222,7 +222,7 @@ take profit at +25%"`}</pre>
       </section>
 
       {/* Articles Section */}
-      <section className="articles">
+      <section className="articles" id="articles">
         <div className="articles-container">
           <div className="articles-header">
             <span className="articles-eyebrow">Learn</span>

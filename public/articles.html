@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles | Saffron</title>
+  <meta name="description" content="Explore Saffron guides on automated trading strategies like DCA, grid trading, and risk management.">
+  <link rel="icon" href="/assets/saffron-logo.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(180deg, #0A0E27 0%, #1A1F3A 100%);
+      color: #E8D5C4;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    .nav {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(244, 164, 96, 0.1);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #F4A460;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: #F4A460;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-back:hover {
+      color: #FFB87A;
+    }
+
+    .page-hero {
+      padding: 80px 40px 32px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .page-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #F4A460;
+      background: rgba(244, 164, 96, 0.15);
+      padding: 6px 14px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+
+    .page-subtitle {
+      color: #D0D0D0;
+      font-size: 1.05rem;
+      max-width: 760px;
+    }
+
+    .articles {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 40px 100px;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(244, 164, 96, 0.18);
+      border-radius: 16px;
+      padding: 20px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(244, 164, 96, 0.45);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      gap: 12px;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(244, 164, 96, 0.12);
+      font-size: 22px;
+      flex: 0 0 auto;
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #F4A460;
+      background: rgba(244, 164, 96, 0.12);
+      padding: 6px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+
+    .card h2 {
+      color: #FFFFFF;
+      font-size: 1.2rem;
+      line-height: 1.35;
+      margin-bottom: 10px;
+      font-weight: 650;
+    }
+
+    .card p {
+      color: #D0D0D0;
+      margin-bottom: 14px;
+      font-size: 0.98rem;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: #A0A0A0;
+      font-size: 0.9rem;
+    }
+
+    .card-link {
+      color: #F4A460;
+      font-weight: 600;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #F4A460 0%, #D2691E 100%);
+      border-radius: 16px;
+      padding: 44px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cta-section h3 {
+      color: #FFFFFF;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 22px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #FFFFFF;
+      color: #D2691E;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 650;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      padding: 40px;
+      text-align: center;
+      border-top: 1px solid rgba(244, 164, 96, 0.1);
+      color: #A0A0A0;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 980px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav,
+      .page-hero,
+      .articles {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .page-hero {
+        padding-top: 60px;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-section {
+        padding: 32px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-logo">Saffron</a>
+    <a href="/" class="nav-back">← Back to Home</a>
+  </nav>
+
+  <header class="page-hero">
+    <span class="page-tag">Learn</span>
+    <h1>Articles & Strategy Guides</h1>
+    <p class="page-subtitle">Short, practical explanations of strategies Saffron can automate—so you understand the “why” before you deploy the “how.”</p>
+  </header>
+
+  <main class="articles">
+    <div class="articles-grid">
+      <a class="card" href="/dca-strategy.html">
+        <div class="card-top">
+          <div class="card-icon">📈</div>
+          <span class="card-tag">Strategy Guide</span>
+        </div>
+        <h2>Dollar Cost Averaging: The Steady Path to Growth</h2>
+        <p>How DCA reduces emotional decisions and builds positions systematically over time.</p>
+        <div class="card-meta">
+          <span>5 min read</span>
+          <span class="card-link">Read →</span>
+        </div>
+      </a>
+
+      <a class="card" href="/grid-trading.html">
+        <div class="card-top">
+          <div class="card-icon">🔲</div>
+          <span class="card-tag">Advanced</span>
+        </div>
+        <h2>Grid Trading: Profit from Sideways Markets</h2>
+        <p>Capture gains in ranging markets with automated buy/sell orders across a price grid.</p>
+        <div class="card-meta">
+          <span>7 min read</span>
+          <span class="card-link">Read →</span>
+        </div>
+      </a>
+
+      <a class="card" href="/risk-management.html">
+        <div class="card-top">
+          <div class="card-icon">🛡️</div>
+          <span class="card-tag">Fundamentals</span>
+        </div>
+        <h2>Risk Management: Protecting Your Capital</h2>
+        <p>Position sizing, stop losses, and portfolio-level controls to survive volatility.</p>
+        <div class="card-meta">
+          <span>8 min read</span>
+          <span class="card-link">Read →</span>
+        </div>
+      </a>
+    </div>
+
+    <section class="cta-section">
+      <h3>Want Saffron to run these strategies for you?</h3>
+      <p>Join the waitlist to get early access to automated execution and strategy templates.</p>
+      <a href="https://forms.gle/iBvVrfZSS6T4q7zQ6" class="cta-button" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Saffron. Trade smarter, not harder.</p>
+  </footer>
+</body>
+</html>
