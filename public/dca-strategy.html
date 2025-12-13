@@ -106,6 +106,20 @@
       color: #D0D0D0;
     }
 
+    .article-content a {
+      color: #F4A460;
+      text-decoration: none;
+    }
+
+    .article-content a:visited {
+      color: #F4A460;
+    }
+
+    .article-content a:hover {
+      color: #FFB87A;
+      text-decoration: underline;
+    }
+
     .article-content ul, .article-content ol {
       margin: 20px 0;
       padding-left: 24px;
@@ -209,7 +223,8 @@
   </header>
 
   <article class="article-content">
-    <p>Dollar Cost Averaging (DCA) is one of the most powerful yet simple investment strategies available. By investing a fixed amount at regular intervals regardless of price, you remove emotion from the equation and build positions systematically over time.</p>
+    <p>Dollar Cost Averaging (DCA) is one of the simplest strategies to execute—and one of the hardest to stick with when markets get emotional. By investing a fixed amount at regular intervals regardless of price, you reduce decision fatigue and build positions systematically over time.</p>
+    <p>In crypto, DCA has an extra layer: markets trade 24/7, liquidity changes hour-by-hour, and your real entry price depends on spreads, slippage, and fees. A “good” DCA plan can still leak performance if the execution is sloppy.</p>
 
     <h2>What is Dollar Cost Averaging?</h2>
     <p>DCA is an investment strategy where you divide your total investment amount into periodic purchases. Instead of trying to time the market with a single large purchase, you spread your investment over time—buying more when prices are low and less when prices are high.</p>
@@ -237,26 +252,57 @@
 
     <p>By the end, your average purchase price is often lower than if you had bought everything at once—especially in volatile markets.</p>
 
+    <h2>DCA in Crypto: What Actually Moves Your Fill Price</h2>
+    <p>Crypto execution quality varies throughout the day. Two investors can place the “same” DCA order and get meaningfully different outcomes depending on market conditions at that moment.</p>
+
+    <div class="highlight-box">
+      <h4>Execution Factors That Matter</h4>
+      <ul>
+        <li><strong>Bid-ask spread</strong> — Wider spreads increase implicit cost, especially on smaller or less liquid assets</li>
+        <li><strong>Order book depth</strong> — Thin books increase slippage when you buy size</li>
+        <li><strong>Volatility</strong> — Fast price moves can turn a “market order” into a worse fill than you expected</li>
+        <li><strong>Fees</strong> — Frequent DCA schedules can bleed PnL if fee rates aren’t accounted for</li>
+      </ul>
+    </div>
+
+    <h2>Is There a “Best Time of Day” to DCA?</h2>
+    <p>There is no single best hour that guarantees a better price. But there <em>are</em> hours that tend to offer better <strong>liquidity</strong> (deeper order books and tighter spreads), which can reduce slippage and make execution more consistent.</p>
+    <p>For example, analyses of Bitcoin order book depth show recurring intraday liquidity cycles, with deeper books during overlapping global trading sessions and thinner liquidity during “twilight” hours. One such dataset-based write-up reports a peak around <strong>09:00–13:00 UTC</strong> and weaker liquidity around <strong>20:00–23:00 UTC</strong>, noting that patterns can break during major volatility events.</p>
+
+    <h3>What this means for DCA</h3>
+    <ul>
+      <li><strong>If you care about minimizing slippage</strong>, avoid placing large market orders during thin-liquidity windows</li>
+      <li><strong>If you DCA frequently</strong>, small improvements in average spread/slippage can compound over time</li>
+      <li><strong>If volatility spikes</strong>, timing becomes less predictable—risk controls matter more than scheduling</li>
+    </ul>
+
     <h2>Automating DCA with Saffron</h2>
     <p>While DCA is simple in concept, executing it consistently requires discipline. That's where Saffron comes in. Tell Saffron your strategy in plain language:</p>
 
     <div class="code-block">
-"Buy $100 of APT-PERP daily,
-stop loss at -10%,
-take profit at +25%"
+"Buy $100 of BTC daily,
+split into 5 smaller buys,
+avoid thin-liquidity hours,
+max slippage 15 bps"
     </div>
 
     <p>Saffron handles the execution 24/7, ensuring your DCA strategy runs with precision—no missed buys, no emotional overrides, just disciplined accumulation.</p>
 
-    <h3>Why Automated DCA Outperforms Manual</h3>
-    <p>Our backtests show that automated DCA with Saffron delivers +5.5% better returns than manual execution. Why?</p>
+    <h3>Smart DCA: Better Execution, Not Magic Predictions</h3>
+    <p>When people ask for the “best time to buy,” what they usually want is <strong>better execution</strong>: tighter spreads, lower slippage, and fewer bad fills. Saffron is designed to use real market signals to choose <em>execution windows</em> and <em>order sizing</em>, which can reduce trading costs and improve consistency versus a naive fixed-time market order.</p>
 
-    <ul>
-      <li><strong>Perfect timing</strong> — Executes at exactly the right intervals</li>
-      <li><strong>No missed days</strong> — Runs even when you're busy or asleep</li>
-      <li><strong>Optimal execution</strong> — Finds the best prices within your time window</li>
-      <li><strong>Built-in risk management</strong> — Stop losses and take profits included</li>
-    </ul>
+    <div class="highlight-box">
+      <h4>Examples of Smart DCA Features</h4>
+      <ul>
+        <li><strong>Liquidity-aware timing</strong> — Prefer windows with deeper order books and tighter spreads</li>
+        <li><strong>Order slicing</strong> — Split a buy into smaller parts to reduce price impact</li>
+        <li><strong>Slippage guardrails</strong> — Don’t execute if spreads/slippage exceed your threshold</li>
+        <li><strong>Volatility checks</strong> — Slow down or pause during abnormal volatility spikes</li>
+        <li><strong>Fee-aware sizing</strong> — Choose intervals and order sizes that make sense after fees</li>
+      </ul>
+    </div>
+
+    <p>None of this guarantees profit—markets are unpredictable. But consistently reducing execution costs is one of the few edges that scales across strategies.</p>
 
     <h2>Best Practices for DCA</h2>
     
@@ -269,6 +315,12 @@ take profit at +25%"
     <h3>3. Set It and Forget It</h3>
     <p>The best DCA strategy is one you don't think about. Automate it and let compound growth work its magic over months and years.</p>
 
+    <h2>Further Reading</h2>
+    <ul>
+      <li><a href="https://blog.amberdata.io/the-rhythm-of-liquidity-temporal-patterns-in-market-depth" target="_blank" rel="noopener noreferrer">Amberdata: Temporal patterns in market depth (liquidity cycles)</a></li>
+      <li><a href="https://arxiv.org/abs/2109.12142" target="_blank" rel="noopener noreferrer">Hansen, Kim, Kimbrough: Periodicity in cryptocurrency volatility and liquidity (arXiv)</a></li>
+    </ul>
+
     <div class="cta-section">
       <h3>Ready to Start Your DCA Strategy?</h3>
       <p>Join Saffron and automate your dollar cost averaging with professional-grade execution.</p>
@@ -277,7 +329,7 @@ take profit at +25%"
   </article>
 
   <footer class="footer">
-    <p>© 2024 Saffron Trading. All rights reserved.</p>
+    <p>© 2025 Saffron Trading. All rights reserved.</p>
   </footer>
 </body>
 </html>

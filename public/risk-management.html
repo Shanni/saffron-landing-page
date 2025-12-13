@@ -106,6 +106,20 @@
       color: #D0D0D0;
     }
 
+    .article-content a {
+      color: #F4A460;
+      text-decoration: none;
+    }
+
+    .article-content a:visited {
+      color: #F4A460;
+    }
+
+    .article-content a:hover {
+      color: #FFB87A;
+      text-decoration: underline;
+    }
+
     .article-content ul, .article-content ol {
       margin: 20px 0;
       padding-left: 24px;
@@ -264,6 +278,20 @@
 
     <p>With a $10,000 account risking 1% per trade with a 5% stop loss, your maximum position size is $2,000. If the trade hits your stop, you lose $100 (1% of account).</p>
 
+    <h2>Crypto-Specific Risks You Must Account For</h2>
+    <p>Crypto adds failure modes that don't show up as often in traditional markets: 24/7 trading, frequent liquidations during volatility spikes, and execution quality that changes dramatically by venue and time of day.</p>
+
+    <div class="highlight-box">
+      <h4>Common Crypto Risk Categories</h4>
+      <ul>
+        <li><strong>Market risk</strong> — Price moves against you</li>
+        <li><strong>Liquidity/execution risk</strong> — Slippage and spread costs, partial fills, thin books</li>
+        <li><strong>Leverage/liquidation risk</strong> — Forced close if margin falls below maintenance</li>
+        <li><strong>Operational risk</strong> — Exchange downtime, API issues, wallet mistakes, wrong network</li>
+        <li><strong>Correlation risk</strong> — Many coins move together, especially during stress</li>
+      </ul>
+    </div>
+
     <h2>Stop Losses: Your Safety Net</h2>
     <p>A stop loss automatically exits a position when price moves against you by a predetermined amount. It's non-negotiable—every trade needs a stop loss.</p>
 
@@ -285,6 +313,19 @@
       <li><strong>Based on market structure</strong>, not arbitrary numbers</li>
     </ul>
 
+    <h2>Leverage, Liquidation, and Margin Modes</h2>
+    <p>Leverage can amplify gains, but it also amplifies losses and introduces liquidation risk. In perpetual futures, you must maintain minimum margin requirements; if your margin falls below maintenance, your position can be closed automatically to prevent further loss.</p>
+
+    <h3>Cross vs Isolated Margin (Practical Meaning)</h3>
+    <p>Margin mode changes what collateral can be used to protect a position:</p>
+    <ul>
+      <li><strong>Cross margin</strong> — Your entire account balance can back positions; more flexible, but a single bad move can threaten the whole account</li>
+      <li><strong>Isolated margin</strong> — Risk is confined to collateral assigned to that position; tighter control, easier to cap worst-case loss per trade</li>
+    </ul>
+
+    <h3>Funding Rates (Perpetual Futures)</h3>
+    <p>Perpetual futures use a funding rate mechanism (paid between longs and shorts) to keep perp prices close to spot. Funding can be a tailwind or a drag, and in strong trends it can materially affect returns—especially for long-held positions.</p>
+
     <h2>Take Profit: Locking in Gains</h2>
     <p>Just as important as knowing when to exit a loser is knowing when to exit a winner. Take profit levels ensure you actually capture gains instead of watching them evaporate.</p>
 
@@ -297,15 +338,31 @@ stop loss at -10%,
 take profit at +25%"
     </div>
 
-    <p>This Saffron strategy has a 1:2.5 risk-reward ratio. Even if only 40% of trades win, you'll be profitable.</p>
+    <p>This example targets a favorable risk/reward profile on paper. In practice, win rate and realized risk/reward depend on volatility, slippage, fees, and whether your stop-loss and take-profit levels are actually executable in fast markets.</p>
 
     <h2>Portfolio-Level Risk Management</h2>
     
     <h3>Correlation Risk</h3>
     <p>Don't put all your eggs in one basket—or even similar baskets. If all your positions are correlated (e.g., all altcoins), a single market move can wipe out everything.</p>
 
+    <h3>Concentration and Tail Risk</h3>
+    <p>Many portfolios look diversified but aren't. If your holdings are all “beta to BTC,” then a single broad market drawdown can hit everything simultaneously. Consider diversifying across:</p>
+    <ul>
+      <li>Different strategies (trend, mean-reversion, carry, DCA)</li>
+      <li>Different time horizons (intraday vs swing)</li>
+      <li>Spot vs derivatives exposure (with careful leverage limits)</li>
+    </ul>
+
     <h3>Maximum Drawdown Limits</h3>
     <p>Set a maximum portfolio drawdown (e.g., -20%) where you stop trading and reassess. This prevents emotional decision-making during losing streaks.</p>
+
+    <h3>Operational Guardrails</h3>
+    <p>Operational failures can be as damaging as bad trades. Consider:</p>
+    <ul>
+      <li><strong>Exchange risk</strong> — Downtime, delistings, withdrawal halts</li>
+      <li><strong>API risk</strong> — Rate limits, stale data, order placement failures</li>
+      <li><strong>Key/wallet hygiene</strong> — Wrong chain, wrong address, approvals you didn’t intend</li>
+    </ul>
 
     <h3>Diversification</h3>
     <ul>
@@ -323,6 +380,12 @@ take profit at +25%"
       <li>Position sizes are calculated precisely</li>
       <li>Take profits lock in gains without greed</li>
       <li>Rules run 24/7, even while you sleep</li>
+    </ul>
+
+    <h2>Further Reading</h2>
+    <ul>
+      <li><a href="https://www.investopedia.com/what-are-perpetual-futures-7494870" target="_blank" rel="noopener noreferrer">Investopedia: Perpetual futures, funding rates, leverage, and liquidation</a></li>
+      <li><a href="https://alphapoint.com/blog/cross-margin-vs-isolated-margin/" target="_blank" rel="noopener noreferrer">AlphaPoint: Cross margin vs isolated margin (risk tradeoffs)</a></li>
     </ul>
 
     <div class="highlight-box">
@@ -344,7 +407,7 @@ take profit at +25%"
   </article>
 
   <footer class="footer">
-    <p>© 2024 Saffron Trading. All rights reserved.</p>
+    <p>© 2025 Saffron Trading. All rights reserved.</p>
   </footer>
 </body>
 </html>

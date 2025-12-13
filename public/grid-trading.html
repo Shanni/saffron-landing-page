@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grid Trading: Profit from Sideways Markets | Saffron</title>
-  <meta name="description" content="Capture gains in ranging markets with automated buy and sell orders at preset intervals.">
+  <meta name="description" content="A crypto-native grid trading guide: profit from range-bound markets with automated buy and sell orders, while managing fees, slippage, and breakouts.">
   <link rel="icon" href="/assets/saffron-logo.png">
   <style>
     * {
@@ -104,6 +104,20 @@
     .article-content p {
       margin-bottom: 20px;
       color: #D0D0D0;
+    }
+
+    .article-content a {
+      color: #F4A460;
+      text-decoration: none;
+    }
+
+    .article-content a:visited {
+      color: #F4A460;
+    }
+
+    .article-content a:hover {
+      color: #FFB87A;
+      text-decoration: underline;
     }
 
     .article-content ul, .article-content ol {
@@ -243,10 +257,20 @@
   </header>
 
   <article class="article-content">
-    <p>While most traders struggle in sideways markets, grid trading thrives. This strategy captures profits from price oscillations by placing a series of buy and sell orders at predetermined intervals—turning market volatility into consistent gains.</p>
+    <p>Crypto markets trade 24/7, and prices often oscillate within ranges for long stretches—then break out violently. Grid trading is a systematic strategy built for that reality: it places a ladder of buy and sell orders so that routine back-and-forth price movement can be harvested while you stay disciplined.</p>
+    <p>Grid trading is not a “free money” strategy. It’s an execution framework that can work well in range-bound markets and can struggle in strong trends. The difference between a clean grid and a painful one is usually <strong>risk limits</strong> and <strong>execution costs</strong> (fees + slippage).</p>
 
     <h2>What is Grid Trading?</h2>
     <p>Grid trading creates a "grid" of orders above and below a set price. When price moves up, sell orders are triggered. When price moves down, buy orders are triggered. Each completed buy-sell cycle captures profit from the price movement.</p>
+
+    <h2>Why Grid Trading Is Especially Popular in Crypto</h2>
+    <p>Grid bots became popular in crypto for structural reasons:</p>
+    <ul>
+      <li><strong>24/7 trading</strong> — Prices move while you sleep; automation matters</li>
+      <li><strong>High volatility</strong> — More oscillation can mean more grid “cycles” (but also larger trend risk)</li>
+      <li><strong>Many correlated assets</strong> — Range behavior can be common across majors and liquid alts</li>
+      <li><strong>Fragmented liquidity</strong> — Execution differs across venues; a grid must be fee-aware and slippage-aware</li>
+    </ul>
 
     <div class="grid-visual">
       <div class="price-levels">
@@ -261,7 +285,7 @@
     </div>
 
     <h2>Why Grid Trading Works</h2>
-    <p>Markets spend roughly 70% of their time in consolidation—moving sideways within a range. Grid trading is specifically designed to profit from this behavior:</p>
+    <p>Grid trading is designed for periods when price repeatedly mean-reverts within a range. In those conditions, it can behave like a “factory” of small, repeated profits:</p>
 
     <div class="highlight-box">
       <h4>Grid Trading Advantages</h4>
@@ -270,6 +294,15 @@
         <li><strong>No prediction needed</strong> — You don't need to guess market direction</li>
         <li><strong>Compounds automatically</strong> — Each trade resets for the next opportunity</li>
         <li><strong>24/7 operation</strong> — Captures moves while you sleep</li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <h4>The Hidden Costs: Fees and Slippage</h4>
+      <ul>
+        <li><strong>Fees stack up</strong> — Dense grids with small per-trade profit can get eaten by fees</li>
+        <li><strong>Slippage distorts results</strong> — Thin liquidity and fast moves can cause worse fills than expected</li>
+        <li><strong>Execution quality varies</strong> — The same grid can perform differently across venues</li>
       </ul>
     </div>
 
@@ -284,6 +317,13 @@
     <h3>3. Set Position Size</h3>
     <p>Divide your capital across all grid levels. Each level should have enough capital to execute its order.</p>
 
+    <h3>4. Decide: Spot Grid vs Perp Grid</h3>
+    <p>Many crypto traders run grids on spot. Others run grids on perpetual futures for capital efficiency. If you use perps, understand two extra risks:</p>
+    <ul>
+      <li><strong>Funding</strong> — A periodic payment between longs and shorts that can add cost or yield depending on direction</li>
+      <li><strong>Liquidation</strong> — Leverage amplifies PnL and can force-close positions if margin falls below requirements</li>
+    </ul>
+
     <h2>Automating Grid Trading with Saffron</h2>
     <p>Grid trading requires constant monitoring and quick execution—perfect for automation. With Saffron, describe your strategy naturally:</p>
 
@@ -294,6 +334,8 @@ rebalance every 4 hours"
     </div>
 
     <p>Saffron manages the entire grid: placing orders, tracking fills, rebalancing positions, and optimizing execution timing.</p>
+
+    <p>Because crypto liquidity changes hour-by-hour, Saffron can also incorporate real-time market conditions (spreads, depth, and volatility) to adjust how aggressively it places or takes liquidity. The goal is <strong>better execution consistency</strong>, not a promise of guaranteed profits.</p>
 
     <h3>Advanced Grid Features</h3>
     <ul>
@@ -312,6 +354,20 @@ rebalance every 4 hours"
       <li><strong>Trending markets</strong> — Grids underperform in strong trends</li>
     </ul>
 
+    <h3>Practical Guardrails</h3>
+    <ul>
+      <li><strong>Use a stop condition</strong> — Pause/exit if price breaks beyond the range by a threshold</li>
+      <li><strong>Limit leverage</strong> — If using perps, keep leverage modest to reduce liquidation risk</li>
+      <li><strong>Choose liquid pairs</strong> — Grids work best where spreads are tight and fills are reliable</li>
+      <li><strong>Account for fees</strong> — Ensure expected profit per grid step exceeds fees by a comfortable margin</li>
+    </ul>
+
+    <h2>Further Reading</h2>
+    <ul>
+      <li><a href="https://coinswitch.co/switch/crypto/what-is-a-grid-trading-bot-2/" target="_blank" rel="noopener noreferrer">CoinSwitch: Grid trading bot risks (fees, slippage, breakouts)</a></li>
+      <li><a href="https://www.investopedia.com/what-are-perpetual-futures-7494870" target="_blank" rel="noopener noreferrer">Investopedia: Perpetual futures, funding rates, and liquidation risk</a></li>
+    </ul>
+
     <p>Mitigate these risks by setting stop-losses outside your grid range and sizing positions appropriately.</p>
 
     <div class="cta-section">
@@ -322,7 +378,7 @@ rebalance every 4 hours"
   </article>
 
   <footer class="footer">
-    <p>© 2024 Saffron Trading. All rights reserved.</p>
+    <p>© 2025 Saffron Trading. All rights reserved.</p>
   </footer>
 </body>
 </html>
