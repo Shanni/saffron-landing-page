@@ -221,6 +221,96 @@ take profit at +25%"`}</pre>
         </div>
       </section>
 
+      {/* Pricing Section */}
+      <section className="pricing" id="pricing">
+        <div className="pricing-container">
+          <div className="pricing-header">
+            <span className="pricing-eyebrow">Pricing</span>
+            <h2 className="pricing-title">Simple, Transparent Pricing</h2>
+            <p className="pricing-subtitle">Start free. Scale as you grow. No hidden fees.</p>
+          </div>
+          <div className="pricing-grid">
+            <div className="pricing-card">
+              <div className="pricing-card-header">
+                <h3 className="pricing-tier">Starter</h3>
+                <p className="pricing-tier-desc">Perfect for getting started</p>
+              </div>
+              <div className="pricing-price">
+                <span className="price-amount">$0</span>
+                <span className="price-period">/month</span>
+              </div>
+              <ul className="pricing-features">
+                <li><span className="feature-check">✓</span> 1 active strategy</li>
+                <li><span className="feature-check">✓</span> 1 exchange connection</li>
+                <li><span className="feature-check">✓</span> Basic execution</li>
+                <li><span className="feature-check">✓</span> Community support</li>
+              </ul>
+              <a 
+                href="https://forms.gle/iBvVrfZSS6T4q7zQ6" 
+                className="pricing-cta pricing-cta-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get Started Free
+              </a>
+            </div>
+            <div className="pricing-card pricing-card-featured">
+              <div className="pricing-badge">Most Popular</div>
+              <div className="pricing-card-header">
+                <h3 className="pricing-tier">Growth</h3>
+                <p className="pricing-tier-desc">For active traders</p>
+              </div>
+              <div className="pricing-price">
+                <span className="price-amount">$19</span>
+                <span className="price-period">/month</span>
+              </div>
+              <ul className="pricing-features">
+                <li><span className="feature-check">✓</span> 5 active strategies</li>
+                <li><span className="feature-check">✓</span> All exchange connections</li>
+                <li><span className="feature-check">✓</span> Smart execution timing</li>
+                <li><span className="feature-check">✓</span> Basic analytics</li>
+                <li><span className="feature-check">✓</span> Email support</li>
+              </ul>
+              <a 
+                href="https://forms.gle/iBvVrfZSS6T4q7zQ6" 
+                className="pricing-cta pricing-cta-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Join Waitlist
+              </a>
+            </div>
+            <div className="pricing-card">
+              <div className="pricing-card-header">
+                <h3 className="pricing-tier">Pro</h3>
+                <p className="pricing-tier-desc">For professional traders</p>
+              </div>
+              <div className="pricing-price">
+                <span className="price-amount">$600</span>
+                <span className="price-period">/month</span>
+              </div>
+              <ul className="pricing-features">
+                <li><span className="feature-check">✓</span> Unlimited strategies</li>
+                <li><span className="feature-check">✓</span> Advanced strategy templates</li>
+                <li><span className="feature-check">✓</span> Priority execution engine</li>
+                <li><span className="feature-check">✓</span> Real-time analytics dashboard</li>
+                <li><span className="feature-check">✓</span> Full API access</li>
+                <li><span className="feature-check">✓</span> Dedicated account manager</li>
+                <li><span className="feature-check">✓</span> Priority 24/7 support</li>
+              </ul>
+              <a 
+                href="https://forms.gle/iBvVrfZSS6T4q7zQ6" 
+                className="pricing-cta pricing-cta-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Join Waitlist
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Articles Section */}
       <section className="articles" id="articles">
         <div className="articles-container">
