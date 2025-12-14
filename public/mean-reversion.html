@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mean Reversion: Trading the Snapback | Saffron</title>
+  <meta name="description" content="A crypto-native mean reversion guide: how to identify stretched moves, enter on reversals, manage trend risk, and automate the rules with Saffron.">
+  <link rel="icon" href="/assets/saffron-logo.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(180deg, #0A0E27 0%, #1A1F3A 100%);
+      color: #E8D5C4;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    .nav {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(244, 164, 96, 0.1);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #F4A460;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: #F4A460;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-back:hover {
+      color: #FFB87A;
+    }
+
+    .article-hero {
+      padding: 80px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #F4A460;
+      background: rgba(244, 164, 96, 0.15);
+      padding: 6px 14px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+
+    .article-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      color: #A0A0A0;
+      font-size: 0.9rem;
+    }
+
+    .article-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px 100px;
+    }
+
+    .article-content h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin: 48px 0 20px;
+    }
+
+    .article-content h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #F4A460;
+      margin: 32px 0 16px;
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+      color: #D0D0D0;
+    }
+
+    .article-content a {
+      color: #F4A460;
+      text-decoration: none;
+    }
+
+    .article-content a:visited {
+      color: #F4A460;
+    }
+
+    .article-content a:hover {
+      color: #FFB87A;
+      text-decoration: underline;
+    }
+
+    .article-content ul, .article-content ol {
+      margin: 20px 0;
+      padding-left: 24px;
+    }
+
+    .article-content li {
+      margin-bottom: 12px;
+      color: #D0D0D0;
+    }
+
+    .highlight-box {
+      background: rgba(244, 164, 96, 0.1);
+      border: 1px solid rgba(244, 164, 96, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .highlight-box h4 {
+      color: #F4A460;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .warning-box h4 {
+      color: #EF4444;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .code-block {
+      background: rgba(10, 14, 39, 0.85);
+      border: 1px solid rgba(244, 164, 96, 0.25);
+      border-radius: 12px;
+      padding: 24px;
+      font-family: 'SF Mono', Monaco, monospace;
+      color: #F4A460;
+      margin: 24px 0;
+      overflow-x: auto;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #F4A460 0%, #D2691E 100%);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .cta-section h3 {
+      color: #FFFFFF;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 24px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #FFFFFF;
+      color: #D2691E;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      padding: 40px;
+      text-align: center;
+      border-top: 1px solid rgba(244, 164, 96, 0.1);
+      color: #A0A0A0;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav, .article-hero, .article-content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .article-hero {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-logo">Saffron</a>
+    <a href="/articles.html" class="nav-back">← Back to Articles</a>
+  </nav>
+
+  <header class="article-hero">
+    <span class="article-tag">Strategy Guide</span>
+    <h1>Mean Reversion: Trading the Snapback</h1>
+    <p class="article-meta">6 min read</p>
+  </header>
+
+  <article class="article-content">
+    <p>Mean reversion is the idea that prices and returns tend to move back toward their historical average after an extreme move. Traders use it to spot when an asset looks “stretched” relative to its recent mean, then look for a reversal back toward normal.</p>
+    <p>In crypto, mean reversion shows up constantly—especially in liquid markets—because leverage, liquidations, and crowd positioning can push price away from fair value briefly, then snap back when pressure fades.</p>
+
+    <h2>What Mean Reversion Is (and What It Isn’t)</h2>
+    <div class="highlight-box">
+      <h4>Core idea</h4>
+      <p style="margin: 0; color: #D0D0D0;">When price deviates far from a reference “mean” (like a moving average), it often reverts toward it over time. Mean reversion is strongest in range-bound markets and weakest in strong trends.</p>
+    </div>
+
+    <div class="warning-box">
+      <h4>Biggest danger: catching a falling knife</h4>
+      <p style="margin: 0; color: #FCA5A5;">A move that looks “overextended” can stay overextended if the market is trending or news-driven. Your strategy must define what counts as a regime change and when to stop trading.</p>
+    </div>
+
+    <h2>Choosing Your “Mean”</h2>
+    <p>The “mean” is just a reference level you expect price to revisit. Common choices:</p>
+    <ul>
+      <li><strong>Moving average (SMA/EMA)</strong> — e.g., 20, 50, or 200 period averages</li>
+      <li><strong>VWAP</strong> — popular for intraday reversion (especially on high-volume pairs)</li>
+      <li><strong>Statistical mean / z-score</strong> — define extreme moves as deviations (e.g., z-score ±2)</li>
+    </ul>
+
+    <h2>Signals: How Traders Identify “Stretched” Price</h2>
+    <p>Mean reversion strategies usually combine a “stretch” signal and a “reversal” confirmation to reduce false entries.</p>
+
+    <div class="highlight-box">
+      <h4>Common signal stack</h4>
+      <ul>
+        <li><strong>Bollinger Bands</strong> — price touches/exceeds outer band, then closes back inside</li>
+        <li><strong>RSI</strong> — overbought/oversold thresholds (e.g., &gt; 75 or &lt; 25 in short-term systems)</li>
+        <li><strong>Volatility filter</strong> — avoid trading during abnormal spikes where spreads and slippage explode</li>
+      </ul>
+    </div>
+
+    <h3>A simple rule template (Bollinger + RSI)</h3>
+    <p>One example approach: enter only after price shows an extreme and then “fails” to continue.</p>
+    <ul>
+      <li><strong>Long</strong>: candle low touches/breaks lower band, then closes back above it, with RSI low</li>
+      <li><strong>Short</strong>: candle high touches/breaks upper band, then closes back below it, with RSI high</li>
+    </ul>
+
+    <h2>Exits and Risk Controls</h2>
+    <p>Mean reversion strategies win by taking many small edges. That means:</p>
+    <ul>
+      <li><strong>Keep stops explicit</strong> — define where the idea is invalidated</li>
+      <li><strong>Take profits systematically</strong> — common target is the mean (middle band / moving average)</li>
+      <li><strong>Account for costs</strong> — frequent trading makes fees and slippage a first-class concern</li>
+    </ul>
+
+    <h2>Automating Mean Reversion with Saffron</h2>
+    <p>Saffron is a good fit for mean reversion because the strategy is rule-based: detect extremes, wait for confirmation, then execute with tight controls. You can describe your logic in plain language:</p>
+
+    <div class="code-block">
+"Mean reversion trade BTC on 15m,
+use Bollinger Bands (50, 2) and RSI(9),
+long when price dips below lower band then closes back inside and RSI < 25,
+target the mid-band, stop below the signal low,
+max 0.5% risk per trade, pause if volatility spikes"
+    </div>
+
+    <p>Automation matters most in crypto because markets run 24/7 and the best reversals often happen fast—right after a liquidation push or a short-lived overreaction.</p>
+
+    <h2>Further Reading</h2>
+    <ul>
+      <li><a href="https://www.investopedia.com/terms/m/meanreversion.asp" target="_blank" rel="noopener noreferrer">Investopedia: Mean reversion (definition, benefits, limitations)</a></li>
+      <li><a href="https://www.babypips.com/trading/system-rules-short-term-bollinger-reversion-strategy" target="_blank" rel="noopener noreferrer">BabyPips: Bollinger reversion system rules (entries/exits)</a></li>
+    </ul>
+
+    <div class="cta-section">
+      <h3>Want Saffron to run mean reversion rules for you?</h3>
+      <p>Join the waitlist to get early access to automated execution and strategy templates.</p>
+      <a href="https://forms.gle/iBvVrfZSS6T4q7zQ6" class="cta-button" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <p>© 2025 Saffron Trading. All rights reserved.</p>
+  </footer>
+</body>
+</html>

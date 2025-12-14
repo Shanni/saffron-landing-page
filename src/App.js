@@ -263,6 +263,17 @@ take profit at +25%"`}</pre>
                 <span className="article-link">Read more <span>→</span></span>
               </div>
             </a>
+            <a href="/mean-reversion.html" className="article-card">
+              <div className="article-image">
+                <span className="article-icon">🔁</span>
+              </div>
+              <div className="article-content">
+                <span className="article-tag">Strategy Guide</span>
+                <h3 className="article-title">Mean Reversion: Trading the Snapback</h3>
+                <p className="article-excerpt">How to trade stretched moves back toward the mean with clear rules and tight risk controls.</p>
+                <span className="article-link">Read more <span>→</span></span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
