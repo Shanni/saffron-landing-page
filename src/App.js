@@ -5,6 +5,14 @@ import Starfield from './Starfield';
 function App() {
   return (
     <div className="App">
+      {/* Navigation Header */}
+      <nav className="nav-header">
+        <div className="nav-container">
+          <a href="/" className="nav-logo">Saffron</a>
+          <a href="https://docs.usesaffron.xyz" className="nav-link" target="_blank" rel="noopener noreferrer">Docs</a>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-video-bg">
@@ -296,7 +304,7 @@ take profit at +25%"`}</pre>
                 <li><span className="feature-check">✓</span> Real-time analytics dashboard</li>
                 <li><span className="feature-check">✓</span> Full API access</li>
                 <li><span className="feature-check">✓</span> Dedicated account manager</li>
-                <li><span className="feature-check">✓</span> Priority 24/7 support</li>
+                <li><span className="feature-check">✓</span> Priority support</li>
               </ul>
               <a 
                 href="https://forms.gle/iBvVrfZSS6T4q7zQ6" 
@@ -371,19 +379,36 @@ take profit at +25%"`}</pre>
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
-          <div className="social-links">
-            <a 
-              href="https://x.com/saffron_trading" 
-              className="social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>𝕏</span> Follow us @saffron_trading
-            </a>
+          <div className="footer-grid">
+            <div className="footer-brand">
+              <h3 className="footer-logo">Saffron</h3>
+              <p className="footer-tagline">Trade smarter, not harder.</p>
+            </div>
+            <div className="footer-links-group">
+              <h4 className="footer-heading">Product</h4>
+              <a href="#features" className="footer-link">Features</a>
+              <a href="#how-it-works" className="footer-link">How It Works</a>
+              <a href="#pricing" className="footer-link">Pricing</a>
+            </div>
+            <div className="footer-links-group">
+              <h4 className="footer-heading">Resources</h4>
+              <a href="https://docs.usesaffron.xyz" className="footer-link" target="_blank" rel="noopener noreferrer">Documentation</a>
+              <a href="#articles" className="footer-link">Strategy Guides</a>
+              <a href="/articles.html" className="footer-link">All Articles</a>
+            </div>
+            <div className="footer-links-group">
+              <h4 className="footer-heading">Connect</h4>
+              <a href="https://x.com/saffron_trading" className="footer-link" target="_blank" rel="noopener noreferrer">𝕏 Twitter</a>
+              <a href="https://forms.gle/iBvVrfZSS6T4q7zQ6" className="footer-link" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
+            </div>
           </div>
-          <p className="footer-text">
-            © 2025 Saffron. Trade smarter, not harder.
-          </p>
+          <div className="footer-bottom">
+            <p className="footer-copyright">© 2025 Saffron. All rights reserved.</p>
+            <div className="footer-legal">
+              <a href="#" className="footer-legal-link">Privacy Policy</a>
+              <a href="#" className="footer-legal-link">Terms of Service</a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
